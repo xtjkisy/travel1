@@ -1,40 +1,42 @@
-{% extends "base.html" %}
+<div class="img">
+  {% extends "base.html" %}
+  {% load widget_tweaks %}
+  {% block container %}
+  <div class="rowcentered-form">
+      <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+          <div class="box">
+              <div class="panel-panel-default">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Register Now</h3>
+                  </div>
+                  <div class="panel-body">
+                      <form action="{% url 'register' %}" method="POST" role="form">
 
-{% block container %}
-<div class="row centered-form">
-  <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Quickstart Registration</h3>
+                          {% csrf_token %}
+                          {{ form.non_field_errors }}
+                          {{ form.username.errors }}
+                          {{ form.country_code.errors }}
+                          {{ form.phone_number.errors }}
+                          {{ form.password.errors }}
+                          <div class="row">
+                              {% render_field form.username class="form-control" placeholder="Username" type="text" style="font-family:Times New Roman; border-radius:10px" %}
+                          </div>
+
+                          <div class="row">
+                              {% render_field form.country_code class="form-control" placeholder="Country Code" type="text" style="font-family:Times New Roman; border-radius:10px"%}
+                              {% render_field form.phone_number class="form-control" placeholder="Phone Number" type="text" style="font-family:Times New Roman; border-radius:10px"%}
+                          </div>
+                          <div class="row">
+                              {% render_field form.password class="form-control" placeholder="Password" type="text" style="font-family:Times New Roman; border-radius:10px"%}
+                              {% render_field form.confirm_password class="form-control" placeholder="Confirm password" type="text" style="font-family:Times New Roman; font-size: 12px; border-radius:10px"%}
+                          </div>
+                          <input type="submit" value="Sign Up" class="btn btn-info btn-block">
+                          <small style="float: right;"><a href="/login">Have an account?</a></small>
+                      </form>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div class="panel-body">
-        <form action="{% url 'register' %}" method="POST" role="form">
-          
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {{ form.username.errors }}
-            {{ form.country_code.errors }}
-            {{ form.phone_number.errors }}
-            {{ form.password.errors }}
-
-            <div class="row">
-              {{ form.username }}
-            </div>
-            <div class="row">
-              {{ form.email }}
-            </div>
-            <div class="row">
-              {{ form.country_code }} {{ form.phone_number }}
-            </div>
-            <div class="row">
-              {{ form.password }} {{ form.confirm_password }}
-            </div>
-
-            <input type="submit" value="Register" class="btn btn-info btn-block">
-            <small style="float: right;"><a href="/login">Login</a></small>
-        </form>
-      </div>
-    </div>
   </div>
 </div>
 {% endblock %}

@@ -17,10 +17,51 @@
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
   <style>
-    .container {
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .container{
       padding-top: 15%;
     }
-  </style>
+    .img{
+      height: 1080px;
+      background-color: rgb(0, 34, 63);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      height: 100vh;
+
+    }
+    .panel-panel-default{
+      width: 300px;
+      margin-left: 30px;
+    }
+    .box{
+      background: rgba(255, 255, 255, 0.69);
+      opacity: 0.8;
+      border-radius: 15px;
+    }
+    .panel-heading h3{
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24.5px;
+      line-height: 32px;
+      width: 211px;
+      height: 32px;
+      color: #292E5B;
+      padding: 30px;
+      white-space: nowrap;
+    }
+    input[type=submit]{
+      height: 50px;
+      width: 0px;
+      background: #292E5B;
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
+    </style>
 
   {% block header %}
   {% endblock %}
